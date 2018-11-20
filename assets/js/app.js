@@ -4,16 +4,16 @@ const context = canvas.getContext('2d');
 const captureButton = document.getElementById('capture');
 
 const constraints = {
-  video: true,
+    video: { facingMode: { exact: "environment" } },
 };
 
 captureButton.addEventListener('click', () => {
-  // Draw the video frame to the canvas.
-  context.drawImage(player, 0, 0, canvas.width, canvas.height);
+    // Draw the video frame to the canvas.
+    context.drawImage(player, 0, 0, canvas.width, canvas.height);
 });
 
 // Attach the video stream to the video element and autoplay.
 navigator.mediaDevices.getUserMedia(constraints)
-  .then((stream) => {
-    player.srcObject = stream;
-  });
+    .then((stream) => {
+        player.srcObject = stream;
+    });
