@@ -4,7 +4,11 @@ const context = canvas.getContext('2d');
 const captureButton = document.getElementById('capture');
 
 const constraints = {
-    video: { facingMode: { exact: "environment" } },
+    video: {
+        facingMode: "environment",
+    },
+    audio: false,
+
 };
 
 captureButton.addEventListener('click', () => {
